@@ -2,17 +2,18 @@
 % March 25, 2015  
 
 clear all;
+format long
 
-% Define target function and its devierate
-f  = @(x) sqrt(10 ./ (4+x));
+% Define target function and its devierate 
+f  = @(x) sqrt(10/(4+x));
 
-x0       = 2;           % initial guess
+x0      = 1.5;           % initial guess
 maxIter = 100;          % maximum number of iterations
 tol     = 1e-12;        % termination tolerance on x
 
 iter = 1;
-fprintf('Before iteration %d, x = %16.15f \n', 0, x0)
-while iter <= 16
+[0, x0]
+while iter <= maxIter
     
     x1 = f(x0);
 
@@ -20,10 +21,10 @@ while iter <= 16
     if (abs(x0 - x1) < tol)
         break
     end
-    fprintf('Before iteration %d, x = %16.15f \n', iter, x1)
+    [iter, x1]
     
     % Update next iteration
     x0 = x1;
     iter = iter + 1;
 end
-fprintf('After iteration %d, the approximate solution x = %16.15f is obtained. \n', iter, x1)
+[iter, x1]

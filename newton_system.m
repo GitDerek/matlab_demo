@@ -1,15 +1,15 @@
 %NEWTON_SYSTEM - Demo of Newton's method for 2-dimensional problem
 % March 25, 2015  
 
-clear all;
+clear all; format long
 
 % Define target functions and their devierates
-f1   = @(x, y) 4 * x.^2 - y.^2;
-f2   = @(x, y) 4 * x * y.^2 - x - 1;
-dxf1 = @(x, y) 8 * x;
-dyf1 = @(x, y) -2 * y;
-dxf2 = @(x, y) 4 * y.^2 - 1;
-dyf2 = @(x, y) 8 * x .* y;
+f1   = @(x, y) 4*x^2-y^2;
+f2   = @(x, y) 4*x*y^2-x-1;
+dxf1 = @(x, y) 8*x;
+dyf1 = @(x, y) -2*y;
+dxf2 = @(x, y) 4*y^2-1;
+dyf2 = @(x, y) 8*x*y;
 
 x = 0;                          % initial guess
 y = 1;                          % initial guess
@@ -20,7 +20,7 @@ tolX    = 1e-12;                % termination tolerance on x
 f1val = f1(x, y);
 f2val = f2(x, y);
 for iter = 1:maxIter
-    fprintf('Before iteration %d, (x, y) = (%f, %f), f1(x) = %e, f2(x) = %e\n', iter-1, x, y, f1val, f2val)
+    [iter-1, x, y, f1val, f2val]
     x0 = x;
     y0 = y;
     
@@ -28,7 +28,7 @@ for iter = 1:maxIter
     jac = [dxf1(x, y) dyf1(x, y);
            dxf2(x, y) dyf2(x, y)];
     
-    % Solve linear system for delta_h
+    % Solve linear system Ax = b
     delta_h = jac \ -[f1val; f2val];
     
     % Update solutions
@@ -42,4 +42,4 @@ for iter = 1:maxIter
         break
     end
 end
-fprintf(' After iteration %d, (x, y) = (%f, %f), f1(x) = %e, f2(x) = %e\n', iter, x, y, f1val, f2val)
+[iter, x, y, f1val, f2val]
