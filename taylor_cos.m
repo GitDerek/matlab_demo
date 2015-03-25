@@ -1,0 +1,12 @@
+x= -3.14:0.002:3.14; 
+y=cos(x);
+p2=1-(1/2)*x.^2;
+p4=1-(1/2)*x.^2+(1/24)*x.^4;
+plot(x, y, 'r', x, p2,'b', x, p4, 'm');
+grid on;
+set(gca,'fontsize',16); 
+xlabel('x-axis');
+ylabel('y-axis');
+axis([-3.14, 3.14, -3, 3]);  
+title('Partial sums of the Taylor series for f(x) = cos(x) at x_0=0');
+legend('f(x)=cos(x)', 'p_2(x)=1-(1/2)x^2', 'p_4(x)=1-(1/2)x^2+(1/24)x^4', 1);
