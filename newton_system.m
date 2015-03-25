@@ -1,4 +1,7 @@
-clear all; format long
+%NEWTON_SYSTEM - Demo of Newton's method for 2-dimensional problem
+% March 25, 2015  
+
+clear all;
 
 % Define target functions and their devierates
 f1   = @(x, y) 4 * x.^2 - y.^2;
@@ -23,7 +26,7 @@ for iter = 1:maxIter
     
     % Jacobian matrix
     jac = [dxf1(x, y) dyf1(x, y);
-        dxf2(x, y) dyf2(x, y)];
+           dxf2(x, y) dyf2(x, y)];
     
     % Solve linear system for delta_h
     delta_h = jac \ -[f1val; f2val];
@@ -33,6 +36,8 @@ for iter = 1:maxIter
     y = y0 + delta_h(2);
     f1val = f1(x, y);
     f2val = f2(x, y);
+    
+    % Check termination tolerance on x and the function value,
     if (abs(x - x0) < tolX && abs(y - y0) < tolX) || (abs(f2val) < tolFun && abs(f1val) < tolFun)
         break
     end
