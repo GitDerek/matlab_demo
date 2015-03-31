@@ -12,8 +12,8 @@
 3. MATLAB 之工程應用 <http://bime-matlab.blogspot.tw/>
 4. <http://libai.math.ncu.edu.tw/bcc16/B/matlab/>
 
-# Introduce to GNU Octave  
+# A brief introduce to GNU Octave  
 GNU Octave 是一套開放原始碼的科學計算及數值分析的工具，其語法與 Matlab 幾乎相同。
 
 * GNU Ocatave <https://www.gnu.org/software/octave/>
-* 線上 <https://sites.google.com/site/octavetech/home>
+* 教學文件 <https://sites.google.com/site/octavetech/home>
