@@ -55,5 +55,5 @@ cdm_sol = [u0; cdm_sol; u1];
 
 % Plot solution
 plot(x, cdm_sol, '-o',x, ue(x), 'r')
-title('Centrial difference method')
+title('Central difference method')
 xlabel('x')
